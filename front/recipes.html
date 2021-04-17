@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!-- 
+
+Grill Template 
+
+http://www.templatemo.com/free-website-templates/417-grill
+
+-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Pro.k - Recipes </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link
+        href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/templatemo_style.css">
+    <link rel="stylesheet" href="css/templatemo_misc.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/testimonails-slider.css">
+
+    <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+    <header>
+        <div id="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="home-account">
+                            <a href="#">Home</a>
+                            <a href="#">My account</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cart-info">
+                            <i class="fa fa-shopping-cart"></i>
+                            (<a href="#">5 items</a>) in your cart (<a href="#">$45.80</a>)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="#"><img src="images/logo.png" title="Grill Template"
+                                    alt="Grill Website Template"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="main-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about-us.html">About</a></li>
+                                <li><a href="recipes.html">recipes</a></li>
+                                <li><a href="contact-us.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="search-box">
+                            <form name="search_form" method="get" class="search_form">
+                                <input id="search" type="text" />
+                                <input type="submit" id="search-button" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-content">
+                        <h2>Recipes</h2>
+                        <span><a href="index.html">Home </a>/ <a href="recipes.html">recipes</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="products-post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-14 col-sm-16">
+                    <div id="product-heading">
+                        <h2>Hungry ?</h2>
+                        <img src="images/under-heading.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- ASIDE
+                    <div class="row">
+                        <div class="filters col-md-12 col-xs-12">
+                            <ul id="filters" class="clearfix">
+                                <li><span class="filter" data-filter="all">All</span></li>
+                                <li><span class="filter" data-filter=".ginger">Ginger</span></li>
+                                <li><span class="filter" data-filter=".pizza">Pizza</span></li>
+                                <li><span class="filter" data-filter=".pasta">Pasta</span></li>
+                                <li><span class="filter" data-filter=".drink">Drink</span></li>
+                                <li><span class="filter" data-filter=".hamburger">Hamburger</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                 -->
+            <!-- ASIDE -->
+            <div id="aside" class="col-md-4 col-sm-8">
+                <!-- aside Widget -->
+                <div class="aside">
+                    <h3 class="aside-title">Categories</h3>
+                    <div class="checkbox-filter">
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-1">
+                            <label for="category-1">
+                                <span></span>
+                                Breakfast
+                                <small>(20)</small>
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-2">
+                            <label for="category-2">
+                                <span></span>
+                                Lunch
+                                <small>(40)</small>
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-3">
+                            <label for="category-3">
+                                <span></span>
+                                Dinner
+                                <small>(145)</small>
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-4">
+                            <label for="category-4">
+                                <span></span>
+                                Dessert
+                                <small>(78)</small>
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-5">
+                            <label for="category-5">
+                                <span></span>
+                                Drinks
+                                <small>(12)</small>
+                            </label>
+                        </div>
+
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="category-6">
+                            <label for="category-6">
+                                <span></span>
+                                Snacks
+                                <small>(40)</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- /aside Widget -->
+
+                <!-- aside Widget 
+                <div class="aside">
+                    <h3 class="aside-title">Price</h3>
+                    <div class="price-filter">
+                        <div id="price-slider"></div>
+                        <div class="input-number price-min">
+                            <input id="price-min" type="number">
+                            <span class="qty-up">+</span>
+                            <span class="qty-down">-</span>
+                        </div>
+                        <span>-</span>
+                        <div class="input-number price-max">
+                            <input id="price-max" type="number">
+                            <span class="qty-up">+</span>
+                            <span class="qty-down">-</span>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <!-- /aside Widget -->
+
+                <!-- aside Widget -->
+                <div class="aside">
+                    <h3 class="aside-title">Diet </h3>
+                    <div class="checkbox-filter">
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-1">
+                            <label for="brand-1">
+                                <span></span>
+                                Healthy
+                                <small>(57)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-2">
+                            <label for="brand-2">
+                                <span></span>
+                                Gluten Free
+                                <small>(12)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-3">
+                            <label for="brand-3">
+                                <span></span>
+                                Vegan
+                                <small>(55)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-4">
+                            <label for="brand-4">
+                                <span></span>
+                                Low Garb
+                                <small>(57)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-5">
+                            <label for="brand-5">
+                                <span></span>
+                                Low Fat
+                                <small>(25)</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- aside Widget -->
+                <div class="aside">
+                    <h3 class="aside-title">Time </h3>
+                    <div class="checkbox-filter">
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-1">
+                            <label for="brand-1">
+                                <span></span>
+                                Brand1
+                                <small>(578)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-2">
+                            <label for="brand-2">
+                                <span></span>
+                                Brand2
+                                <small>(125)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-3">
+                            <label for="brand-3">
+                                <span></span>
+                                SONY
+                                <small>(755)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-4">
+                            <label for="brand-4">
+                                <span></span>
+                                SAMSUNG
+                                <small>(578)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-5">
+                            <label for="brand-5">
+                                <span></span>
+                                LG
+                                <small>(125)</small>
+                            </label>
+                        </div>
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="brand-6">
+                            <label for="brand-6">
+                                <span></span>
+                                Brand3
+                                <small>(755)</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- /aside Widget -->
+
+                <!-- aside Widget 
+                <div class="aside">
+                    <h3 class="aside-title">Top selling</h3>
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="./img/product01.png" alt="">
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">Category</p>
+                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                        </div>
+                    </div>
+
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="./img/product02.png" alt="">
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">Category</p>
+                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                        </div>
+                    </div>
+
+                    <div class="product-widget">
+                        <div class="product-img">
+                            <img src="./img/product03.png" alt="">
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">Category</p>
+                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                        </div>
+                    </div>
+                </div>
+             -->
+                <!-- /aside Widget -->
+            </div>
+            <!-- /ASIDE -->
+
+            <div class="row" id="Container">
+                <div class="col-md-3 col-sm-8 mix portfolio-item Pizza">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/Pizza_Margherita.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/Pizza_Margherita.jpg"><img
+                                            src="images/open-icon.png" alt="" /></a>
+                                    <span>Zoom</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="pizza.html">Pizza Margherita</a></h3>
+                            <span class="text-category">16 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item ginger">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product2.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product2_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Ginger</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="recipes1/single-post.html">Ginger Tea</a></h3>
+                            <span class="text-category">25 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item pizza">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product3.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product3_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Pizza</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Fresh Salad</a></h3>
+                            <span class="text-category">15 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3  mix portfolio-item pasta">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product4.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product4_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Pasta</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Healthy Herbal Tea</a></h3>
+                            <span class="text-category">45 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item drink">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product5.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product5_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Drink</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Fruit Salad</a></h3>
+                            <span class="text-category">90min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item hamburger">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product6.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product6_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Hamburger</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Spicy Hamburger</a></h3>
+                            <span class="text-category">30 min </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item pizza">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product7.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product7_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Pizza</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Chocolate Cake</a></h3>
+                            <span class="text-category">60 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item pasta">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product8.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product8_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Pasta</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Berry Taste</a></h3>
+                            <span class="text-category">15min </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item hamburger">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product3.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product3_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Hamburger</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Onion Grilled</a></h3>
+                            <span class="text-category">20min </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item drink">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product2.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product2_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Drink</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Another Ginger</a></h3>
+                            <span class="text-category">10 min</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item ginger">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product1.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product1_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Ginger</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Mocha Coffee</a></h3>
+                            <span class="text-category">15 min </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-8 mix portfolio-item pasta">
+                    <div class="portfolio-wrapper">
+                        <div class="portfolio-thumb">
+                            <img src="images/product6.jpg" alt="" />
+                            <div class="hover">
+                                <div class="hover-iner">
+                                    <a class="fancybox" href="images/product6_big.jpg"><img src="images/open-icon.png"
+                                            alt="" /></a>
+                                    <span>Pasta</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.html">Dessert Time</a></h3>
+                            <span class="text-category">25 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <div class="row">
+                    <div class="col-md-14    ">
+                        <ul>
+                            <li><a href="#">Previous</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="top-footer">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="subscribe-form">
+                            <span>Get in touch with us</span>
+                            <form method="get" class="subscribeForm">
+                                <input id="subscribe" type="text" />
+                                <input type="submit" id="submitButton" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="social-bottom">
+                            <span>Follow us:</span>
+                            <ul>
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-rss"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-footer">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="about">
+                            <h4 class="footer-title">About Grill</h4>
+                            <p>Grill is free HTML5 template by <span class="blue">template</span><span
+                                    class="green">mo</span> and it is a free responsive bootstrap layout that can be
+                                applied for any purpose.
+                                <br><br>Credit goes to <a rel="nofollow" href="http://unsplash.com">Unsplash</a> for
+                                photos used in this template. Nam commodo erat quis ligula placerat viverra.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="shop-list">
+                            <h4 class="footer-title">Shop Categories</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>New Grill Menu</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Healthy Fresh Juices</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Spicy Delicious Meals</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Simple Italian Pizzas</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Pure Good Yogurts</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Ice-cream for kids</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="recent-posts">
+                            <h4 class="footer-title">Recent posts</h4>
+                            <div class="recent-post">
+                                <div class="recent-post-thumb">
+                                    <img src="images/recent-post1.jpg" alt="">
+                                </div>
+                                <div class="recent-post-info">
+                                    <h6><a href="#">Delicious and Healthy Menus</a></h6>
+                                    <span>24/12/2084</span>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="recent-post-thumb">
+                                    <img src="images/recent-post2.jpg" alt="">
+                                </div>
+                                <div class="recent-post-info">
+                                    <h6><a href="#">Simple and effective meals</a></h6>
+                                    <span>18/12/2021</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="more-info">
+                            <h4 class="footer-title">More info</h4>
+                            <p>Sed dignissim, diam id molestie faucibus, purus nisl pretium quam, in pulvinar velit
+                                massa id elit.</p>
+                            <ul>
+                                <li><i class="fa fa-phone"></i>010-020-0340</li>
+                                <li><i class="fa fa-globe"></i>123 Dagon Studio, Yakin Street, Digital Estate</li>
+                                <li><i class="fa fa-envelope"></i><a href="#">info@company.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer">
+                <p>Copyright © 2021 <a href="index.html"> Pro.K</a></p>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script src="js/vendor/jquery-1.11.0.min.js"></script>
+    <script src="js/vendor/jquery.gmap3.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
