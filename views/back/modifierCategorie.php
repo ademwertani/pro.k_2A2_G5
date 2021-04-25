@@ -145,7 +145,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                             </div>
                         </div>
                     </div>
-                    <!-- //matfaskhsh kol shay katlek ouma katlek juste eli ahshtek bih yaani bloc rl form -->
+                    
                     <!-- End Form Elements -->
                 </div>
             </div>

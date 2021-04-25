@@ -1,25 +1,24 @@
 <?php
-
-
-class recettecontroller
+include "config.php";
+class commentairecontroller
 {
 
-    function ajouterRecette($recette)
+    function ajouterCommentaire($commentaires)
     {
-        $sql = "insert into recette (nom,description,image,categorie) values (:nom,:description,:image,:categorie)";
+        $sql = "insert into commentaires (nom,mail,commentaire) values (:nom,:mail,:commentaire)";
         $db = config::getConnexion();
         try {
             $req = $db->prepare($sql);
 
-            $nom = $recette->getNom();
-            $description = $recette->getDescription();
-            $image = $recette->getImage();
-            $categorie = $recette->getCategorie();
+            $nom = $commentaires->getNom();
+            $mail = $commentaires->getMail();
+            $commentaire = $commentaires->getCommentaire();
+           
 
             $req->bindValue(':nom', $nom);
-            $req->bindValue(':description', $description);
-            $req->bindValue(':image', $image);
-            $req->bindValue(':categorie', $categorie);
+            $req->bindValue(':mail', $mail);
+            $req->bindValue(':commentaire', $commentaire);
+            
 
             $req->execute();
         } catch (Exception $e) {
@@ -27,21 +26,21 @@ class recettecontroller
         }
     }
 
-    function afficherRecette()
+    /*function afficherRecette()
     {
         $sql = "SELECT * from recette ";
         $db = config::getConnexion();
 
         try {
-            $liste = $db->query($sql);
-            return $liste;
+            $Com = $db->query($sql);
+            return $Com;
         } catch (Exception $e) {
             die('Erreur: ' . $e->getMessage());
         }
     }
-    function supprimerRecette($recette)
+    function supprimerRecette($commentaires)
     {
-        $sql = "DELETE from recette where  id= :id";
+        $sql = "DELETE from commentaires where  id= :id";
         $db = config::getConnexion();
         $req = $db->prepare($sql);
 
@@ -56,7 +55,7 @@ class recettecontroller
 
     function findById($id)
     {
-        $sql = "SELECT * from recette where id= $id ";
+        $sql = "SELECT * from commentaires where id= $id ";
         $db = config::getConnexion();
         try {
             $liste = $db->query($sql);
@@ -64,5 +63,5 @@ class recettecontroller
         } catch (Exception $e) {
             die('Erreur :' . $e->getMessage());
         }
-    }
+    }*/
 }

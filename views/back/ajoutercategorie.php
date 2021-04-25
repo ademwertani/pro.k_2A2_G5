@@ -16,3 +16,4 @@ if (isset($_POST['nom'])) //si le champ nom n'est pas vide
 else {
     echo'verifier les champs';
      }
+     ?>
