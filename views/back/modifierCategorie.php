@@ -167,9 +167,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     result = confirm("Are you sure you want to submit this form ?");
                     if (result) {
                         $('#form').submit();
-                        //why use jquery? so oldskool  idkk isnt mine
-                        //  good girl
-                        // document.querySelector("#form").submit(); EZ NO JQUERY NOTHING
+                        
                     }
                 }
             </script>
