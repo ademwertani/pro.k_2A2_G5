@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include_once "config.php";
 
 class categoriecontroller
 {
@@ -83,7 +83,7 @@ class categoriecontroller
 
     function RecuperatebyId($id)
     {
-        $sql = "SELECT * from categorie where id= $id ";
+        $sql = "SELECT * from categorie c where c.id= $id ";
         $db = config::getConnexion();
         try {
             $liste = $db->query($sql);
@@ -93,7 +93,68 @@ class categoriecontroller
         }
     }
     //function rechercherCategorie()
-    //function TriCategorieById()
-    //function TriCategorieByNom()
+
+
+    function rechercherCategorie($nom){
+		$sql="SELECT c.id from categorie c where c.nom=$nom";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+
+
+
+        function search($nom)
+        {
+            $sql = "SELECT * From  categorie nom LIKE '$nom'";
+            $db  = Config::getConnexion();
+            try {
+                $list = $db->query($sql);
+                return $list;
+            } catch (Exception $e) {
+                die('Error: ' . $e->getMessage());
+            }
+        }
+        function triparNom()
+        {
+            $sql = " SElECT * From categorie ORDER BY nom ";
+            $db  = Config::getConnexion();
+            try {
+                $list = $db->query($sql);
+                return $list;
+            } catch (Exception $e) {
+                die('Error: ' . $e->getMessage());
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

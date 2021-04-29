@@ -10,10 +10,10 @@ if (isset($_POST['nom'])) //si le champ nom n'est pas vide
     $categorie1controller->ajoutercategorie($categorie1);
     
 
-    header('Location: mdCategorie.php'); //yaani baed maysir l'ajout iaawed iraj3ek el nafs el page
-    
+    header('Location: mdCategorie.php'); 
 }
 else {
     echo'verifier les champs';
      }
-     ?>
+
+?>

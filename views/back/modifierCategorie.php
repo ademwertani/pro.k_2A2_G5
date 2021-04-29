@@ -53,7 +53,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     </li>
 
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode fa-2x"></i>Comments</a>
+                    <a href="rdreviews.php"><i class="fa fa-qrcode fa-2x"></i>Reviews</a>
                     </li>
                     <li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
@@ -66,7 +66,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 
                     </li>
                     <li>
-                        <a href="addcategories.html"><i class=" fa fa-edit fa  "></i>
+                        <a href="addcategories.html"><i class=" fa fa-edit fa-2x  "></i>
                             Categories </a>
 
                     </li>

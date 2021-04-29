@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include_once "config.php";
 class commentairecontroller
 {
 
@@ -26,9 +26,9 @@ class commentairecontroller
         }
     }
 
-    /*function afficherRecette()
+    function afficherCommentaire()
     {
-        $sql = "SELECT * from recette ";
+        $sql = "SELECT * from commentaireS ";
         $db = config::getConnexion();
 
         try {
@@ -38,7 +38,7 @@ class commentairecontroller
             die('Erreur: ' . $e->getMessage());
         }
     }
-    function supprimerRecette($commentaires)
+    function supprimerCommentaire($commentaires)
     {
         $sql = "DELETE from commentaires where  id= :id";
         $db = config::getConnexion();
@@ -63,5 +63,5 @@ class commentairecontroller
         } catch (Exception $e) {
             die('Erreur :' . $e->getMessage());
         }
-    }*/
+    }
 }

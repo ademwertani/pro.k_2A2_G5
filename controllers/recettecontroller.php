@@ -1,5 +1,5 @@
 <?php
-
+include_once "config.php";
 
 class recettecontroller
 {
@@ -29,7 +29,7 @@ class recettecontroller
 
     function afficherRecette()
     {
-        $sql = "SELECT * from recette ";
+        $sql = "SELECT * From recette ";
         $db = config::getConnexion();
 
         try {
@@ -65,4 +65,27 @@ class recettecontroller
             die('Erreur :' . $e->getMessage());
         }
     }
-}
+    
+    function search($nom)
+    {
+        $sql = "SELECT * From recette WHERE nom LIKE '$nom'";
+        $db  = Config::getConnexion();
+        try {
+            $list = $db->query($sql);
+            return $list;
+        } catch (Exception $e) {
+            die('Error: ' . $e->getMessage());
+        }
+    }
+    function triparnom()
+    {
+        $sql = "SElECT * From recette ORDER BY nom ";
+        $db  = Config::getConnexion();
+        try {
+            $list = $db->query($sql);
+            return $list;
+        } catch (Exception $e) {
+            die('Error: ' . $e->getMessage());
+        }
+    }
+	}

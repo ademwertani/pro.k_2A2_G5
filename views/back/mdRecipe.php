@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <?php
+ 
 include "../../controllers/recettecontroller.php";
 
 $recettec = new recettecontroller();
 $listrecette = $recettec->afficherRecette();
+
 ?>
 
 
@@ -42,7 +44,8 @@ $listrecette = $recettec->afficherRecette();
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
+                    class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
@@ -58,7 +61,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     </li>
 
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode fa-2x"></i>Comments</a>
+                        <a href="rdreviews.php"><i class="fa fa-qrcode fa-2x"></i>Reviews</a>
                     </li>
                     <li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
@@ -71,7 +74,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 
                     </li>
                     <li>
-                        <a href="addcategories.html"><i class=" fa fa-edit fa  "></i>
+                        <a href="addcategories.html"><i class=" fa fa-edit fa-2x   "></i>
                             Categories </a>
 
                     </li>
@@ -89,106 +92,282 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     </div>
                 </div>
                 <!-- /. ROW  -->
-                <hr />
+
 
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Liste des categories
+                            <div>
+                                <?php
+                                         $Search = new recettecontroller();    
+                                        if (isset($_POST["nom"])) {
+                                            $nom= $_POST["nom"];
+                                            $listrecette =$recettec->search($nom);
+                                        
+                                            foreach ($listrecette as $row) {
+                                                $id = $row['id'];
+                                                $nom = $row['nom'];
+                                                $description = $row['description'];
+                                                $categorie = $row['categorie'];
+                                               
+                                            }
+                                        
+                                        }
+
+                                         if (isset($_GET["tri"])) {
+      
+                                            $listrecette= $recettec->triparnom();
+                                    
+                                        }
+                                     ?>
+
+                                <div class="filter">
+                                    <form method="GET">
+                                        <button type="submit" name="tri">A-Z</button>
+                                    </form>
+                                        <form method="POST">
+
+                                            <div class="search" style="float:right;">
+                                                <button class="btn btn-light" type="submit">Search</button></th>
+                                                <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                                                    name="nom">
+
+
+
+                                            </div>
+                                        </form>
+                                </div>
                             </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                        <tr>
-                                            <th>id</th>
-                                            <th>nom</th>
-                                            <th>description </th>
-                                            <th>image</th>
-                                            <th> categorie </th>
-                                            <th> supprimer </th>
-                                            <th> modiifer </th>
-                                        </tr>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>nom</th>
+                                        <th>description </th>
+                                        <th>image</th>
+                                        <th> categorie </th>
+                                        <th> supprimer </th>
+                                        <th> modiifer </th>
+                                    </tr>
 
 
-                                        <?php foreach ($listrecette as $l) { ?>
+                                    <?php if (isset($_POST["nom"])) {
+                                            $nom= $_POST["nom"];
+                                            $listrecette =$recettec->search($nom);                                           
+
+                                             foreach ($listrecette as $l) { ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $l['id'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $l['nom'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $l['description']
+                                             ?>
+                                        </td>
+
+                                        <td> <img src="./uploads/<?= $l['image'] ?>" style="width:100px"> </td>
+
+
+
+                                        <td>
+                                            <?php echo $l['categorie'] ?>
+                                        </td>
+
+
+
+
+                                        <td>
+                                            <form method="POST" action="supprimerrecette.php">
+                                                <input type="submit" name="supprimer" value="supprimer"
+                                                    class="btn btn-danger" onclick="validateSubmit()">
+                                                <input type="hidden" value="<?PHP echo $l['id']; ?>" name="id">
+
+                                            </form>
+
+                                            <script>
+                                                function validateSubmit() {
+                                                    result = confirm("Are you sure you want to delete this form ?");
+                                                    if (result) {
+                                                        $('#form').submit();
+
+
+                                                    }
+                                                }
+                                            </script>
+
+
+
+                                        </td>
+
+                                        <td>
+                                            <button class="btn btn-primary"> <a style="color:white;" target="_blank"
+                                                    href="modifierrecette.php?id=<?php echo $l['id']; ?>"> Modifier </a>
+                                            </button>
+                                        </td>
+
+
+
+                                    </tr>
+                                    <?php } } else if (isset($_GET["tri"])) {
+                                            $listrecette= $recettec->triparnom();                                          
+
+                                             foreach ($listrecette as $l) { ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $l['id'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $l['nom'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $l['description']
+                                             ?>
+                                        </td>
+
+                                        <td> <img src="./uploads/<?= $l['image'] ?>" style="width:100px"> </td>
+
+
+
+                                        <td>
+                                            <?php echo $l['categorie'] ?>
+                                        </td>
+
+
+
+
+                                        <td>
+                                            <form method="POST" action="supprimerrecette.php">
+                                                <input type="submit" name="supprimer" value="supprimer"
+                                                    class="btn btn-danger" onclick="validateSubmit()">
+                                                <input type="hidden" value="<?PHP echo $l['id']; ?>" name="id">
+
+                                            </form>
+
+                                            <script>
+                                                function validateSubmit() {
+                                                    result = confirm("Are you sure you want to delete this form ?");
+                                                    if (result) {
+                                                        $('#form').submit();
+
+
+                                                    }
+                                                }
+                                            </script>
+
+
+
+                                        </td>
+
+                                        <td>
+                                            <button class="btn btn-primary"> <a style="color:white;" target="_blank"
+                                                    href="modifierrecette.php?id=<?php echo $l['id']; ?>"> Modifier </a>
+                                            </button>
+                                        </td>
+
+
+
+
+
+
+
+
+                                    </tr>
+                                    <?php } } else {
+                                        $listrecette = $recettec->afficherRecette();
+                                           foreach ($listrecette as $l) { ?>
                                             <tr>
-                                                <td> <?php echo $l['id'] ?> </td>
-                                                <td> <?php echo $l['nom'] ?> </td>
-                                                <td> <?php echo $l['description'] ?> </td>
-
+                                                <td>
+                                                    <?php echo $l['id'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $l['nom'] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $l['description']
+                                                     ?>
+                                                </td>
+        
                                                 <td> <img src="./uploads/<?= $l['image'] ?>" style="width:100px"> </td>
-
-
-
-                                                <td> <?php echo $l['categorie'] ?> </td>
-
-
-
-
+        
+        
+        
+                                                <td>
+                                                    <?php echo $l['categorie'] ?>
+                                                </td>
+        
+        
+        
+        
                                                 <td>
                                                     <form method="POST" action="supprimerrecette.php">
-                                                        <input type="submit" name="supprimer" value="supprimer" class="btn btn-success" onclick="validateSubmit()">
+                                                        <input type="submit" name="supprimer" value="supprimer"
+                                                            class="btn btn-danger" onclick="validateSubmit()">
                                                         <input type="hidden" value="<?PHP echo $l['id']; ?>" name="id">
-
+        
                                                     </form>
-
+        
                                                     <script>
                                                         function validateSubmit() {
                                                             result = confirm("Are you sure you want to delete this form ?");
                                                             if (result) {
                                                                 $('#form').submit();
-
-
+        
+        
                                                             }
                                                         }
                                                     </script>
-
-
-
+        
+        
+        
                                                 </td>
-
+        
                                                 <td>
-                                                    <button class="btn btn-danger"> <a style="color:white;" target="_blank" href="modifierrecette.php?id=<?php echo $l['id']; ?>"> Modifier </a>
+                                                    <button class="btn btn-primary"> <a style="color:white;" target="_blank"
+                                                            href="modifierrecette.php?id=<?php echo $l['id']; ?>"> Modifier </a>
                                                     </button>
                                                 </td>
-
-
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
+        
+        
                                             </tr>
-                                        <?php } ?>
+                                            <?php } } ?>
 
-                                    </table>
-                                </div>
-
+                                </table>
                             </div>
+
                         </div>
                     </div>
-                    <!-- /. PAGE WRAPPER  -->
-                    <!-- /. WRAPPER  -->
-                    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-                    <!-- JQUERY SCRIPTS -->
-                    <script src="assets/js/jquery-1.10.2.js"></script>
-                    <!-- BOOTSTRAP SCRIPTS -->
-                    <script src="assets/js/bootstrap.min.js"></script>
-                    <!-- METISMENU SCRIPTS -->
-                    <script src="assets/js/jquery.metisMenu.js"></script>
-                    <!-- DATA TABLE SCRIPTS -->
-                    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-                    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-                    <script>
-                        $(document).ready(function() {
-                            $('#dataTables-example').dataTable();
-                        });
-                    </script>
-                    <!-- CUSTOM SCRIPTS -->
-                    <script src="assets/js/custom.js"></script>
+                </div>
+                <!-- /. PAGE WRAPPER  -->
+                <!-- /. WRAPPER  -->
+                <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+                <!-- JQUERY SCRIPTS -->
+                <script src="assets/js/jquery-1.10.2.js"></script>
+                <!-- BOOTSTRAP SCRIPTS -->
+                <script src="assets/js/bootstrap.min.js"></script>
+                <!-- METISMENU SCRIPTS -->
+                <script src="assets/js/jquery.metisMenu.js"></script>
+                <!-- DATA TABLE SCRIPTS -->
+                <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+                <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $('#dataTables-example').dataTable();
+                    });
+                </script>
+                <!-- CUSTOM SCRIPTS -->
+                <script src="assets/js/custom.js"></script>
 
 
 </body>
