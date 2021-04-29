@@ -1,7 +1,21 @@
-﻿<?php require_once 'commande.php' ;
+require_once 'commande.php' ;
 require_once 'commandee.php';
 $commandee =new commandee();
 $commande =$commandee->affichercommande();
+if (!empty($_POST['Daate']) and !empty($_POST['Prix'])  and isset($_POST['save'])){
+    
+    $commande=new commande($_POST['Daate'],$_POST['Prix']);
+
+    $commandee->ajoutercommande($commande);
+
+    header('Location: table.php');
+}
+if (isset($_GET['Idcommande'])) {
+        $commandee->supprimercommande($_GET['Idcommande']);
+        header('Location:table.php');
+    }
+
+
   ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -81,6 +95,17 @@ font-size: 16px;"> Last access : 22 april 2021 &nbsp; <a href="#" class="btn btn
                         <div class="panel-heading">
                              Commandes
                         </div>
+                                   
+                                                
+                                                 <form action="" method="POST" name="ajout">
+                                                <label>Date</label>
+                                                <input type="date" name="Daate" value="Enter the date " required>
+                                                <label>Prix</label>  
+                                                 <input type="float" name="Prix" placeholder= "Enter the price" required>
+                                                 <button type="submit" class="btn btn-primary" name="save">Ajouter</button>
+                                               </form>
+
+                                     
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -99,9 +124,12 @@ font-size: 16px;"> Last access : 22 april 2021 &nbsp; <a href="#" class="btn btn
                                     <tbody>
                                                 <tr>
                                             <td> <?= $commande ['Idcommande'] ?> </td>
-                                            <td> <?= $commande ['Date'] ?> </td>
+                                            <td> <?= $commande ['Daate'] ?> </td>
                                             <td> <?= $commande ['Prix'] ?> </td>
-                                        </tr>
+                                            <td><a type="button" class="contact100-form-btn" href = "table.php?Idcommande=<?= $commande['Idcommande'] ?>">supprimer</a></td>
+                                          <td><a type="button" class="contact100-form-btn" href = "modifier.php?Idcommande=<?= $commande['Idcommande'] ?>">modifier</a></td>
+                                               </tr>
+
                                     </tbody>
                                     <?php } ?>
                                 </table>
@@ -142,7 +170,6 @@ font-size: 16px;"> Last access : 22 april 2021 &nbsp; <a href="#" class="btn btn
     </script>
          <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
-   
 </body>
 </html>
+
