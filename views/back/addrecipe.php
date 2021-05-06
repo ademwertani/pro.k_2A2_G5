@@ -127,7 +127,6 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                             <select id="nomcategorie" value="" name="categorie">
                                                 <?php foreach ($listecategorie as $l) {  ?>
 
-                                                    <option value="<?php echo $l['id'] ?>"> </option>
                                                     <option value="<?php echo $l['id'] ?>"> <?php echo $l['nom'] ?></option>
 
                                                 <?php } ?>

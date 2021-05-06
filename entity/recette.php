@@ -6,23 +6,24 @@ class recette{
     private $description; 
     private $note; 
     private $image; 
-    private $categorie;
+    private $idc;
 
 
-    function construct($id, $nom, $description, $image,$categorie)
+
+    function construct($id, $nom, $description, $image,$idc)
     {
         $this->nom=$nom; 
         $this->description=$description; 
         $this->image=$image; 
-        $this->categorie=$categorie;
+        $this->idc=$idc;
     }
 
-    function __construct($nom,$description,$image,$categorie)
+    function __construct($nom,$description,$image,$idc)
     {
         $this->nom=$nom;
         $this->description=$description; 
         $this->image=$image; 
-        $this->categorie=$categorie;
+        $this->idc=$idc;
 
     }
 
@@ -30,9 +31,9 @@ class recette{
     {
         return $this->id; 
     }
-    function getCategorie()
+    function getIdc()
     {
-        return $this->categorie;
+        return $this->idc;
     }
 
     function getNom()
@@ -70,9 +71,9 @@ class recette{
     {
         $this->image=$image;
     }
-    function setCategorie()
+    function setIdc()
     {
-        $this->categorie=$categorie;
+        $this->idc=$idc;
     }
 }
 

@@ -44,7 +44,7 @@ class categoriecontroller
 
         try {
             $id = $categorie->getId();
-            $nom = $categorie->getNom();
+            $nom_cat = $categorie->getNom();
 
             $req = $db->prepare($sql);
 
@@ -105,12 +105,13 @@ class categoriecontroller
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
+    }
 
 
 
         function search($nom)
         {
-            $sql = "SELECT * From  categorie nom LIKE '$nom'";
+            $sql = "SELECT * From  categorie WHERE nom LIKE '$nom'";
             $db  = Config::getConnexion();
             try {
                 $list = $db->query($sql);
@@ -121,7 +122,7 @@ class categoriecontroller
         }
         function triparNom()
         {
-            $sql = " SElECT * From categorie ORDER BY nom ";
+            $sql = " SELECT * From categorie ORDER BY nom ";
             $db  = Config::getConnexion();
             try {
                 $list = $db->query($sql);
@@ -141,18 +142,7 @@ class categoriecontroller
 
 
 
-	}
-
-
-
-
-
-
-
-
-
-
-
+	
 
 
 

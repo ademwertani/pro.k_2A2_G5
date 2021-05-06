@@ -64,7 +64,7 @@ $commentaireC = $commentaire1->afficherCommentaire();
             <a href="rdreviews.php"><i class="fa fa-qrcode fa-2x"></i>Reviews</a>
           </li>
           <li>
-            <a href="chart.html"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
+            <a href="chart.php"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
           </li>
 
           <li>

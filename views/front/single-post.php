@@ -4,33 +4,13 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <!-- 
-
+ 
 Grill Template 
-
+ 
 http://www.templatemo.com/free-website-templates/417-grill
-
+ 
 -->
-<?php
-include_once "../../controllers/categoriecontroller.php";
-$categorieC = new categoriecontroller();
-$listecategorie = $categorieC->afficherCategorie();
-
-
-
-require_once "../../controllers/recettecontroller.php";
-
-$recettec = new recettecontroller();
-$listrecette = $recettec->afficherRecette();
-
-include_once "../../controllers/commentairecontroller.php";
-
-$commentaire1 = new commentairecontroller();
-
-$commentaireC = $commentaire1->afficherCommentaire();
-
-?>
-
-
+ 
     <head>
         <meta charset="utf-8">
         <title>Blog - Grill Template</title>
@@ -38,21 +18,21 @@ $commentaireC = $commentaire1->afficherCommentaire();
         <meta name="viewport" content="width=device-width">
         
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
+ 
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/font-awesome.css">
         <link rel="stylesheet" href="css/templatemo_style.css">
         <link rel="stylesheet" href="css/templatemo_misc.css">
         <link rel="stylesheet" href="css/flexslider.css">
         <link rel="stylesheet" href="css/testimonails-slider.css">
-
+ 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-
+ 
             <header>
                 <div id="top-header">
                     <div class="container">
@@ -80,6 +60,7 @@ $commentaireC = $commentaire1->afficherCommentaire();
                                     <a href="#"><img src="images/logo.png" title="Grill Template" alt="Grill Website Template" ></a>
                                 </div>
                             </div>
+ 
                             <div class="col-md-6">
                                 <div class="main-menu">
                                     <ul>
@@ -102,7 +83,7 @@ $commentaireC = $commentaire1->afficherCommentaire();
                     </div>
                 </div>
             </header>
-
+ 
             <div id="heading">
                 <div class="container">
                     <div class="row">
@@ -114,11 +95,32 @@ $commentaireC = $commentaire1->afficherCommentaire();
                     </div>
                 </div>
             </div>
-
-
-
-
-
+ 
+ 
+ 
+            <?php
+                                        include "../../entity/recette.php";
+                                        include "../../controllers/recettecontroller.php";
+ 
+                                        if (isset($_GET['id'])) {
+                                            $recettec = new recettecontroller();
+                                            $result = $recettec->findById($_GET['id']);
+ 
+                                            foreach ($result as $row) {
+                                                $id = $row['id'];
+                                                $nom = $row['nom'];
+                                                $description = $row['description'];
+                                                $categorie = $row['nom_cat'];
+                                                $idc=$row['idc'];
+                                                $img=$row['image'];
+                                            }
+                                        }
+ 
+                                        ?>
+ 
+ 
+ 
+ 
             <div id="product-post">
                 <div class="container">
                     <div class="row">
@@ -134,96 +136,56 @@ $commentaireC = $commentaire1->afficherCommentaire();
                             <div class="row">
                                 <div class="product-item col-md-12">
                                     <div class="row">
+                                        
+ 
+ 
+ 
                                         <div class="col-md-8">  
                                                 <div class="image">
                                                     <div class="image-post">
-                                                        <img src="images/single-post.jpg" alt="">
+                                                        <img src="../back/uploads/<?= $img ?>" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
-                                                    <div class="product-title">
-                                                        <h3>ANOTHER MORNING BREAKFAST</h3>
-                                                        
+                                                    <div class="product-title" name="nom" value="nom">
+                                                        <h3 name="nom" value="nom"> <?php  echo $nom ?></h3>
+                                                         
                                                     </div>
-                                                    <p>Single blog post page is here for you. You can use this grill <a href="#">template</a> for any purpose. You do not need to give a credit to templatemo website for any reason. Praesent nec euismod ipsum, eget sodales enim. Duis in rhoncus lorem. Duis fermentum sem et libero viverra, in cursus velit dapibus. Donec dui ante, dapibus ut odio eget, vulputate blandit ante. Integer ullamcorper, augue id malesuada convallis, mauris risus cursus elit, eget scelerisque ipsum massa ac nisi. Donec venenatis vel arcu at pharetra. <a href="#">Aenean</a> a mauris augue. In egestas nisi turpis, et venenatis sapien ultrices eget. Nunc mattis nunc quis erat pretium tristique.<br><br>
-                                                    Mauris suscipit metus ullamcorper enim fringilla sagittis. Duis dui leo, mattis ac rhoncus eget, interdum a ipsum. Duis rutrum, justo et egestas feugiat, dui velit egestas velit, feugiat efficitur ante mauris eu ipsum. Aliquam quis sem vitae mi fringilla ornare eu quis orci. Fusce tellus sem, gravida a nunc eget, vehicula <a href="#">commodo</a> sapien.</p>
+                                                    <p name="description">  <?php echo $description ?> </p>
                                                 </div>
                                                 <div class="divide-line">
                                                 <img src="images/div-line.png" alt="" />
+ 
+                                              
+ 
+                                                <form method="POST" action="recettepdf.php">
+                                                <button type='submit' style='float:right;' name="pdf">telecharger en pdf </button>
+                                                <input type="hidden" value="<?PHP echo $id; ?>" name="id">
+ 
+                                                </form>
+ 
+ 
+ 
+ 
                                                 </div>
                                                 <div class="comments-title">
                                                     <div class="comment-section">
                                                         <h4>Comments</h4>
                                                     </div>
                                                 </div>
-
-
+ 
+ 
                                                 
-                                                <div class="all-comments">
-                                                <?php foreach ($commentaireC as $l) { ?>
-                                                    <div class="view-comments">
-                                                        <div class="comments">
-                                                           
-                                                            <div class="comment-body">
-                                                                <h6> <?php echo $l['nom'] ?></h6>
-                                                                <span class="mail"><?php echo $l['mail'] ?></span>
-                                                                <a href="#" class="hidden-xs">Reply</a>
-                                                                <p><?php echo $l['Commentaire'] ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php } ?> 
-                                                </div>
-                                                <div class="divide-line">
-                                                <img src="images/div-line.png" alt="" />
-                                                </div>
-                                            <div class="leave-comment">
-                                                <div class="leave-one">
-                                                    <h4>Leave a comment</h4>
-                                                </div>
-                                            </div>
-                                            <div class="leave-form">
-                                                <form id="formajoutercategorie" method="POST"  action="ajoutercommentaire.php" enctype="multipart/form-data"  >
-                                                    <div class="row">
-                                                        <div class="name col-md-6">
-                                                        <input type="text"  name="nom" required=""
-                                                                placeholder="Name" />
-                                                        </div>
-                                                        
-                                                        <div class="email col-md-6">
-                                                            <input   type="text"  id="email"  value="" name="email" required=""
-                                                                placeholder="Email" />
-                                                        </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="text col-md-12">
-                                                            <textarea type="text"  id="Commentaire"  value=""   name="Commentaire" required="" 
-                                                                placeholder="Comment"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="send">
-                                                        <button type="submit" class="btn btn-default" style="float:right;" value="submit" onclick="validateSubmit()" name="submit">Add</button>
-                                                    
-                                                        <script>
-                                        function validateSubmit() {
-                                            result = confirm("Are you sure you want to submit this form ?");
-                                            if (result) {
-                                                $('#form').submit();
-
-
-                                            }
-                                        }
-                                    </script>
-
+                                                
+                                      
+ 
                                                     
                                                     
                                                     
                                                     
                                                     
                                                     </div>
-                                                </form>
+                                                
                                             </div>
                                         </div>
                                             
@@ -234,9 +196,9 @@ $commentaireC = $commentaire1->afficherCommentaire();
                     </div>     
                 </div>
             </div>
-
-
-			<footer>
+ 
+ 
+           <footer>
                 <div class="container">
                     <div class="top-footer">
                         <div class="row">
@@ -325,12 +287,12 @@ $commentaireC = $commentaire1->afficherCommentaire();
                     
                 </div>
             </footer>
-
+ 
     
         <script src="js/vendor/jquery-1.11.0.min.js"></script>
         <script src="js/vendor/jquery.gmap3.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-
+ 
     </body>
 </html>

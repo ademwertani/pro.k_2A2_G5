@@ -1,14 +1,72 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+﻿
 <?php
  
 include "../../controllers/recettecontroller.php";
 
+
+
+
+$db = config::getConnexion();
+
+
+$start = 0; 
+$per_page=3; 
+$page_counter = 0; 
+$next = $page_counter+1; 
+$previous = $page_counter -1; 
+
+if (isset($_GET['start']))
+{
+    $start = $_GET['start']; 
+    $page_counter=$_GET['start']; 
+    $start= $start * $per_page; 
+    $next = $page_counter +1; 
+    $previous = $page_counter -1 ; 
+
+}
+
+//
+
+$qry = "SELECT recette.id, recette.nom, recette.description, recette.image, recette.idc, categorie.nom AS nom_cat
+FROM recette LEFT JOIN categorie
+    ON categorie.id = recette.idc
+            limit $start, $per_page";
+            
+
+$query=$db->prepare($qry); 
+$query->execute();  
+
+if($query->rowCount() > 0){ //ken table  msh fergha
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+$count_query="SELECT * from recette"; 
+$query=$db->prepare($count_query); 
+$query->execute(); 
+$count=$query->rowCount(); 
+
+
+//arrondissement
+$paginations=ceil($count/$per_page);
+
+
+
+
+
+
 $recettec = new recettecontroller();
-$listrecette = $recettec->afficherRecette();
+
+
+$lista=$recettec->affiche();
+
+
+
 
 ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 
 
 <head>
@@ -27,6 +85,9 @@ $listrecette = $recettec->afficherRecette();
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
     <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 </head>
 
 <body>
@@ -64,7 +125,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                         <a href="rdreviews.php"><i class="fa fa-qrcode fa-2x"></i>Reviews</a>
                     </li>
                     <li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
+                        <a href="chart.php"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
                     </li>
 
                     <li>
@@ -94,10 +155,15 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                 <!-- /. ROW  -->
 
 
+
+
+
+
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
+
                             <div>
                                 <?php
                                          $Search = new recettecontroller();    
@@ -109,7 +175,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                                 $id = $row['id'];
                                                 $nom = $row['nom'];
                                                 $description = $row['description'];
-                                                $categorie = $row['categorie'];
+                                                $categorie = $row['nom_cat'];
                                                
                                             }
                                         
@@ -122,24 +188,49 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                         }
                                      ?>
 
-                                <div class="filter">
+
+
+
+                                        
+                                
                                     <form method="GET">
+                                    
+                                    <div class="filter">
                                         <button type="submit" name="tri">A-Z</button>
+
+                                    </div>
+
                                     </form>
-                                        <form method="POST">
-
-                                            <div class="search" style="float:right;">
-                                                <button class="btn btn-light" type="submit">Search</button></th>
-                                                <input class="form-control mr-sm-2" type="text" placeholder="Search"
-                                                    name="nom">
 
 
+                                    
 
-                                            </div>
-                                        </form>
-                                </div>
+                                      
+                                        
+                               
                             </div>
                         </div>
+
+                        <form method="POST">
+
+                        <div class="wrap">
+                                        <div class="search" >
+                                        <label class="form-label" for="form1">Search</label>
+
+                                            <input type="search" id="form1" class="search_term" name=nom />
+                                        
+                                         
+                                        <button type="submit" class="search_btn">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                       
+                          </div>
+
+                          </form>
+
+                     
+                       
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -176,7 +267,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
 
 
                                         <td>
-                                            <?php echo $l['categorie'] ?>
+                                            <?php echo $l['nom_cat'] ?>
                                         </td>
 
 
@@ -217,7 +308,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                     <?php } } else if (isset($_GET["tri"])) {
                                             $listrecette= $recettec->triparnom();                                          
 
-                                             foreach ($listrecette as $l) { ?>
+                                            foreach ($listrecette as $l) { ?>
                                     <tr>
                                         <td>
                                             <?php echo $l['id'] ?>
@@ -235,7 +326,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
 
 
                                         <td>
-                                            <?php echo $l['categorie'] ?>
+                                            <?php echo $l['nom_cat'] ?>
                                         </td>
 
 
@@ -278,27 +369,32 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
 
 
                                     </tr>
-                                    <?php } } else {
-                                        $listrecette = $recettec->afficherRecette();
-                                           foreach ($listrecette as $l) { ?>
+
+
+
+
+                                    <?php }}  else {
+                                       
+                                          foreach ($result as $lister)
+                                         { ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo $l['id'] ?>
+                                                    <?php echo $lister['id'] ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $l['nom'] ?>
+                                                    <?php echo $lister['nom'] ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $l['description']
+                                                    <?php echo $lister['description']
                                                      ?>
                                                 </td>
         
-                                                <td> <img src="./uploads/<?= $l['image'] ?>" style="width:100px"> </td>
+                                                <td> <img src="./uploads/<?= $lister['image'] ?>" style="width:100px"> </td>
         
         
         
                                                 <td>
-                                                    <?php echo $l['categorie'] ?>
+                                                    <?php echo $lister['nom_cat'] ?>
                                                 </td>
         
         
@@ -308,7 +404,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                                     <form method="POST" action="supprimerrecette.php">
                                                         <input type="submit" name="supprimer" value="supprimer"
                                                             class="btn btn-danger" onclick="validateSubmit()">
-                                                        <input type="hidden" value="<?PHP echo $l['id']; ?>" name="id">
+                                                        <input type="hidden" value="<?PHP echo $lister['id']; ?>" name="id">
         
                                                     </form>
         
@@ -329,7 +425,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
         
                                                 <td>
                                                     <button class="btn btn-primary"> <a style="color:white;" target="_blank"
-                                                            href="modifierrecette.php?id=<?php echo $l['id']; ?>"> Modifier </a>
+                                                            href="modifierrecette.php?id=<?php echo $lister['id']; ?>"> Modifier </a>
                                                     </button>
                                                 </td>
         
@@ -346,9 +442,47 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                 </table>
                             </div>
 
-                        </div>
+                      
+<form action="pdf.php">
+    <button type ='submit' style="float: right;">pdf </button>
+                                                    </form>
+                                                    </div>
+                  
+<center>
+<ul class="pagination">
+  <?php
+
+
+    if( $page_counter == 0){
+    echo "<li><a href=?start='0' class='active'>0</a></li>";
+    for($j=1; $j < $paginations; $j++) { 
+        
+      echo "<li><a href=?start=$j>".$j."</a></li>";
+   }
+    }
+    else{
+    echo "<li><a href=?start=$previous>Previous</a></li>"; 
+
+
+    for($j=0; $j < $paginations; $j++) {
+
+     if($j == $page_counter) {
+        echo "<li><a href=?start=$j class='active'>".$j."</a></li>";
+     }else{
+        echo "<li><a href=?start=$j>".$j."</a></li>";
+     } 
+
+  }
+  if($j != $page_counter+1)
+    echo "<li><a href=?start=$next>Next</a></li>"; 
+} 
+?>
+</ul>
+</center>
                     </div>
                 </div>
+
+            
                 <!-- /. PAGE WRAPPER  -->
                 <!-- /. WRAPPER  -->
                 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

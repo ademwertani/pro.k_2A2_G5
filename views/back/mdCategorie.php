@@ -69,7 +69,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                         <a href="rdreviews.php"><i class="fa fa-qrcode fa-2x"></i>Reviews</a>
                     </li>
                     <li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
+                        <a href="chart.php"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
                     </li>
 
                     <li>
@@ -114,9 +114,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                              
                                         if (isset($_POST["nom"])) {
                                             $nom= $_POST["nom"];
-                                            $listecategorie = $categorieC->search($nom);
+                                            $listecategorie= $categorieC->search($nom);
                                         
-                                             foreach ($listecategorie as $l) { 
+                                             foreach ($listecategorie as $row) { 
                                                 $id = $row['id'];
                                                 $nom = $row['nom'];
                                                
@@ -124,9 +124,10 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                         
                                         }
 
-                                         if (isset($_GET["tri"])) {
+                                         
+                                        if (isset($_GET["tri"])) {
       
-                                            $listecategorie = $categorieC->triparnom();
+                                            $listecategorie = $categorieC->triparNom();
                                     
                                         }
                                      ?>
@@ -135,6 +136,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                                                 <form method="GET">
                                                     <button type="submit" name="tri">A-Z</button>
                                                 </form>
+
                                                 <form method="POST">
 
                                                     <div class="search" style="float:right;">

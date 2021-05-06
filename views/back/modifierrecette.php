@@ -6,7 +6,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -113,7 +112,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                                 $id = $row['id'];
                                                 $nom = $row['nom'];
                                                 $description = $row['description'];
-                                                $categorie = $row['categorie'];
+                                                $categorie = $row['nom_cat'];
+                                                $idc=$row['idc'];
                                             }
                                         }
 
@@ -122,7 +122,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                         <table>
                                             <form action="post_mdrec.php" method="POST" enctype="multipart/form-data">
 
-                                                <h3>Modifier categorie; <?PHP echo $id ?></h3>
+                                                <h3>Modifier recette; <?PHP echo $id ?></h3>
                                                 <tr>
                                                     <td>
                                                         <input type="text" class="form-control has-feedback-right" id="inputSuccess4" name="id" placeholder="id" value="<?php echo $id ?>" readOnly="">
@@ -142,11 +142,11 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                                 <tr>
                                                     <td>
                                                         <label style="font-weight: bold"> categorie </label>
-                                                        <input type="text" class="form-control" name="categorie" readOnly="" placeholder="" required="" value="<?php echo $categorie ?>" style="width:500px">
+                                                        <input type="text" class="form-control" name="idc" readOnly=""  required="" value="<?php echo $idc ?>" style="width:500px"> <?php echo $categorie ?>
                                                         </br>
                                                     </td>
                                                 </tr>
-
+                                    </br>
 
 
 

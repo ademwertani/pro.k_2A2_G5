@@ -17,13 +17,44 @@ http://www.templatemo.com/free-website-templates/417-grill
 include_once "../../controllers/categoriecontroller.php";
 $categorieC = new categoriecontroller();
 $listecategorie = $categorieC->afficherCategorie();
+$db = config::getConnexion();
 
+$start = 0; 
+$per_page=4; 
+$page_counter = 0; 
+$next = $page_counter+1; 
+$previous = $page_counter -1; 
 
+if (isset($_GET['start']))
+{
+    $start = $_GET['start']; 
+    $page_counter=$_GET['start']; 
+    $start=$start * $per_page; 
+    $next = $page_counter+1; 
+    $previous = $page_counter -1 ; 
+
+}
+
+$qry = "SELECT * From recette limit $start, $per_page";
+$query=$db->prepare($qry); 
+$query->execute(); 
+
+if($query->rowCount() > 0){
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$count_query="SELECT * from recette"; 
+$query=$db->prepare($count_query); 
+$query->execute(); 
+$count=$query->rowCount(); 
+
+$paginations=ceil($count/$per_page);
 
 require_once "../../controllers/recettecontroller.php";
 
 $recettec = new recettecontroller();
 $listrecette = $recettec->afficherRecette();
+
 ?>
 
 <head>
@@ -31,7 +62,8 @@ $listrecette = $recettec->afficherRecette();
     <title>Pro.k - Recipes </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link
         href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
         rel='stylesheet' type='text/css'>
@@ -88,15 +120,6 @@ $listrecette = $recettec->afficherRecette();
                     </div>
                     <div class="col-md-3">
                         <div class="search-box">
-
-
-
-
-
-
-
-
-
                             <form name="search_form" method="get" class="search_form">
                                 <input id="search" type="text" />
                                 <input type="submit" id="search-button" />
@@ -107,7 +130,6 @@ $listrecette = $recettec->afficherRecette();
             </div>
         </div>
     </header>
-
 
     <div id="heading">
         <div class="container">
@@ -122,14 +144,10 @@ $listrecette = $recettec->afficherRecette();
         </div>
     </div>
 
-
-
-
-
     <div id="products-post">
         <div class="container">
             <div class="row">
-                <div class="col-md-14 col-sm-16">
+                <div class="col-md-12">
                     <div id="product-heading">
                         <h2>Hungry ?</h2>
                         <img src="images/under-heading.png" alt="">
@@ -137,121 +155,101 @@ $listrecette = $recettec->afficherRecette();
                 </div>
             </div>
 
-            <!-- SECTION -->
-            <div class="section">
-                <!-- container -->
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <!-- ASIDE -->
-                        <div id="aside" class="col-md-3">
-                            <!-- aside Widget -->
-                            <div class="aside">
-                                <h3 class="aside-title">Categories</h3>
-                                <div class="checkbox-filter">
-                                    <?php foreach ($listecategorie as $l) { ?>
-                                    <div class="input-checkbox">
-                                        <input type="checkbox" id="category-1">
-                                        <label for="category-1">
-
-                                            <h4>
-                                                <?php echo $l['nom']  , "\n" ?>
-                                            </h4>
-
-                                        </label>
-                                    </div>
-                                    <?php } ?>
-
-                                </div>
-                            </div>
-                            <!-- /aside Widget -->
-
-                            <!-- aside Widget -->
+            <!-- cat -->
 
 
+            <div class="row">
+                <div class="filters col-md-12 col-xs-12">
+                    <ul id="filters" class="clearfix">
+                        <form method="post">
+                            <?php  foreach ($listecategorie as $l) { ?>
 
-                            <!-- /aside Widget -->
-                        </div>
-                        <!-- /ASIDE -->
 
-                        <!-- STORE -->
-                        <div id="store" class="col-md-7">
+                            <li type="submit">
 
-                            <div class="col-md-5 col-sm-5">
-                                <?PHP foreach ( $listrecette as  $l) {?>
-                                <div class="blog-post">
-                                    <div class="blog-thumb">
-                                        <img src="../back/uploads/<?= $l['image'] ?>" style="width:300px">
-                                    </div>
-                                    <div class="blog-content">
-                                        <div class="content-show">
-                                            <h4><a href="single-post.php">
-                                                    <?php echo $l['nom'] ?>
-                                                </a></h4>
 
-                                        </div>
-                                        <div class="content-hide">
-                                            <p>
-                                                <?php echo $l['description'] ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
+                                <span class="filter" data-filter="all" value=<?php $l['nom'] ?> name=cat >
+                                    <?php echo $l['nom'] ?>
+                                </span>
+                            </li>
+
+                            <?php } ?>
+                        </form>
+                    </ul>
                 </div>
+
+
             </div>
+
+
+            <!-- catfinish-->
+
+
+            <div class="row" id="Container">
+                <?php  foreach($result as $lr) {?>
+
+
+                <div class="col-lg-6 col-md-6 col-xl-6">
+
+
+                    <div class="portfolio-wrapper">
+
+                        <div class="portfolio-thumb">
+                            <img src="../back/uploads/<?= $lr['image'] ?>" class="cover-image"
+                                style="width:450px; height:300px;">
+
+
+                        </div>
+                        <div class="label-text">
+                            <h3><a href="single-post.php?id=<?php echo $lr['id'];?>">
+                                    <?php echo $lr ['nom'] ?>
+                                </a></h3>
+                            <span class="text-category">
+                                <?php echo $lr['description'] ?>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <?php } ?>
+
+            </div>
+
         </div>
+        <center>
+            <ul class="pagination">
+                <?php
+
+
+if($page_counter == 0){
+    echo "<li><a href=?start='0' class='active'>0</a></li>";
+    for($j=1; $j < $paginations; $j++) { 
+        
+      echo "<li><a href=?start=$j>".$j."</a></li>";
+   }
+    }else{
+    echo "<li><a href=?start=$previous>Previous</a></li>"; 
+    for($j=0; $j < $paginations; $j++) {
+     if($j == $page_counter) {
+        echo "<li><a href=?start=$j class='active'>".$j."</a></li>";
+     }else{
+        echo "<li><a href=?start=$j>".$j."</a></li>";
+     } 
+  }if($j != $page_counter+1)
+    echo "<li><a href=?start=$next>Next</a></li>"; 
+} 
+?>
+            </ul>
+        </center>
 
     </div>
-    </div>
-
-    </div>
-    </div>
-
-    </div>
-
-
-
-
 
     <!-- /container -->
-    </div>
-    </div>
-    </div>
-    </div>
-
-
-
-
-
-    <div id="product-post">
-        <div class="container">
-
-            <div id="contact-us">
-                <div class="container">
-                    <div class="row">
-                        <div class="product-item col-md-12">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="message-form">
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
 
     <footer>
         <div class="container">
@@ -356,8 +354,6 @@ $listrecette = $recettec->afficherRecette();
 
         </div>
     </footer>
-
-
 
 
 </body>

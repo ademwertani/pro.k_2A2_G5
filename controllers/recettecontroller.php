@@ -1,12 +1,15 @@
 <?php
 include_once "config.php";
 
+
 class recettecontroller
+
 {
+
 
     function ajouterRecette($recette)
     {
-        $sql = "insert into recette (nom,description,image,categorie) values (:nom,:description,:image,:categorie)";
+        $sql = "insert into recette (nom,description,image,idc) values (:nom,:description,:image,:idc)";
         $db = config::getConnexion();
         try {
             $req = $db->prepare($sql);
@@ -14,12 +17,12 @@ class recettecontroller
             $nom = $recette->getNom();
             $description = $recette->getDescription();
             $image = $recette->getImage();
-            $categorie = $recette->getCategorie();
+            $idc = $recette->getIdc();
 
             $req->bindValue(':nom', $nom);
             $req->bindValue(':description', $description);
             $req->bindValue(':image', $image);
-            $req->bindValue(':categorie', $categorie);
+            $req->bindValue(':idc', $idc);
 
             $req->execute();
         } catch (Exception $e) {
@@ -29,7 +32,7 @@ class recettecontroller
 
     function afficherRecette()
     {
-        $sql = "SELECT * From recette ";
+        $sql = "SELECT * From recette  ";
         $db = config::getConnexion();
 
         try {
@@ -38,6 +41,21 @@ class recettecontroller
         } catch (Exception $e) {
             die('Erreur: ' . $e->getMessage());
         }
+    }
+    function affiche()
+    {
+        $sql="SELECT recette.id, recette.nom, recette.description, recette.image, recette.idc, categorie.nom AS nom_cat
+            FROM recette LEFT JOIN categorie
+                ON categorie.id = recette.idc";
+                        $db = config::getConnexion();
+
+                   $sql=$db->prepare($sql);
+                   $sql->execute();
+                   $res=$sql->fetchAll();
+                   return $res;
+                        
+
+
     }
     function supprimerRecette($recette)
     {
@@ -56,7 +74,9 @@ class recettecontroller
 
     function findById($id)
     {
-        $sql = "SELECT * from recette where id= $id ";
+        $sql ="SELECT recette.id, recette.nom, recette.description, recette.image, recette.idc, categorie.nom AS nom_cat
+        FROM recette LEFT JOIN categorie
+            ON categorie.id = recette.idc where recette.id= $id ";
         $db = config::getConnexion();
         try {
             $liste = $db->query($sql);
@@ -66,9 +86,12 @@ class recettecontroller
         }
     }
     
+    
     function search($nom)
     {
-        $sql = "SELECT * From recette WHERE nom LIKE '$nom'";
+        $sql = "SELECT recette.id, recette.nom, recette.description, recette.image, recette.idc, categorie.nom AS nom_cat
+        FROM recette LEFT JOIN categorie
+            ON categorie.id = recette.idc WHERE recette.nom LIKE '$nom'";
         $db  = Config::getConnexion();
         try {
             $list = $db->query($sql);
@@ -79,7 +102,9 @@ class recettecontroller
     }
     function triparnom()
     {
-        $sql = "SElECT * From recette ORDER BY nom ";
+        $sql = "SELECT recette.id, recette.nom, recette.description, recette.image, recette.idc, categorie.nom AS nom_cat
+        FROM recette LEFT JOIN categorie
+            ON categorie.id = recette.idc ORDER BY recette.nom ";
         $db  = Config::getConnexion();
         try {
             $list = $db->query($sql);
@@ -87,5 +112,21 @@ class recettecontroller
         } catch (Exception $e) {
             die('Error: ' . $e->getMessage());
         }
+    }
+
+    
+    function triparcategorie($cat)
+    {
+        $sql = "SELECT recette.id, recette.nom, recette.description, recette.image, recette.idc, categorie.nom AS nom_cat
+        FROM recette LEFT JOIN categorie
+            ON categorie.id = recette.idc WHERE categorie.nom LIKE '$cat' ";
+        $db  = Config::getConnexion();
+        try {
+            $list = $db->query($sql);
+            return $list;
+        } catch (Exception $e) {
+            die('Error: ' . $e->getMessage());
+        }
+
     }
 	}
