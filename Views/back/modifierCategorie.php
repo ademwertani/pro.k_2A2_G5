@@ -80,7 +80,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Recipes</h2>
+                        <h2>Catégorie</h2>
                         <h5>Welcome Firas Ben Hadj Alouane , Love to see you back. </h5>
 
                     </div>
@@ -92,7 +92,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                         <!-- Form Elements -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Form Element Examples
+                                
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -118,7 +118,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                         <table>
                                             <form action="post_mdcat.php" method="POST">
 
-                                                <h3>Modifier categorie; <?PHP echo $id ?></h3>
+                                                <h3>Modifier categorie <?PHP echo $id ?></h3>
                                                 <tr>
                                                     <td>
                                                         <input type="text" class="form-control has-feedback-right" id="inputSuccess4" name="id" placeholder="id" value="<?php echo $id ?>" readOnly="">

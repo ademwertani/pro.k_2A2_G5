@@ -45,7 +45,7 @@ $listecategorie = $categorieC->afficherCategorie();
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a>
+font-size: 16px;"> Last access : 30 May 2021 &nbsp; <a href="../front/Login/logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
             </div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -69,7 +69,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     </li>
 
                     <li>
-                        <a href="ajouterProduit1.php"><i class=" fa fa-edit fa  fa-2x  "></i>
+                        <a href="addrecipe.php"><i class=" fa fa-edit fa  fa-2x  "></i>
                             Produit </a>
 
 
@@ -134,14 +134,14 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 
 
                                             <label>categorie</label>
-                                            <select id="nomcategorie" value="" name="categorienom">
-                                               <?php foreach ($listecategorie as $l) {  ?>
+                                            <select id="nomcategorie" value="" name="categorie">
+                                                <?php foreach ($listecategorie as $l) {  ?>
 
-                                                <option value="<?php echo $l['id'] ?>"> <?php echo $l['id']; ?></option>
+                                                <option value="<?php echo $l['id'] ?>"> <?php echo $l['nom']; ?></option>
 
                                             
 
-                                                <?php } ?> 
+                                                <?php } ?>
 
                                             </select>
 

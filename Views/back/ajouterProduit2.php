@@ -4,7 +4,7 @@ include "../../entity/produit.php";
 
 if (isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['etat']) && isset($_POST['dateFabrication']) &&  isset($_POST['prix'])  && isset($_POST['categorie'])   ) //si le champ nom n'est pas vide
 {
-
+  
     if(!isset($_FILES['image'])) 
     {
         echo "veuillez insérer une image";

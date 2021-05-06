@@ -10,8 +10,7 @@ class produit
     private $categorie;
     private $prix;
 	
-
-
+   
 
 	public function __construct($nom,$description,$etat,$dateFabrication,$image,$categorie,$prix)
 	{

@@ -4,7 +4,8 @@ include "../../controllers/produitC.php";
 
 $produit1C = new produitC();
 $listproduit = $produit1C->afficherProduit();
-?>    
+?>   
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -18,9 +19,9 @@ Grill Template
 http://www.templatemo.com/free-website-templates/417-grill
 
 -->
-    <head>
+<head>
         <meta charset="utf-8">
-        <title>Products -  Template</title>
+        <title>Grill Responsive Web Template</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         
@@ -48,6 +49,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                                 <div class="home-account">
                                     <a href="#">Home</a>
                                     <a href="#">My account</a>
+                                    <a href="../front/Login/logout.php" >Login</a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -99,108 +101,18 @@ http://www.templatemo.com/free-website-templates/417-grill
                             <div class="heading-content">
                                 <h2>Produits</h2>
                                 <span><a href="about-us.html">Home </a>/ <a href="Produits.html">Produits</a></span>
+                                
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-   
-                      	
-    
-            
-
            
-            <div class="row">
-                    <div class="col-md-12">
-                        <!-- Advanced Tables -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Liste des produits
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                        <tr>
-                                            <th>id</th>
-                                            <th>nom</th>
-                                            <th>description </th>
-                                            <th>etat </th>
-                                            <th>date de fabrication </th> 
-                                            <th>prix </th>
-                                            
-                                            
-                                            
-                                        </tr>
-                                        
-                                        <label>Trier les Produits par   </label>
-                                        <br> </br>
-
-                                        <form  action="tri_produit.php">
-               <button   type="submit" name="trier" class="btn btn btn-primary btn-rounded float-right" data-animation="fadeInUp" data-delay="1s" data-duration="500ms" >nom</button>
-        </form>
-        <br> </br>
-        <form  action="tri_Prixproduit.php">
-        
-               <button   type="radio" name="trier" class="btn btn btn-primary btn-rounded float-right" data-animation="fadeInUp" data-delay="1s" data-duration="500ms" >prix</button>
-        </form>
-        <br> </br>
-        <form  action="tri_Dateproduit.php">
-               <button   type="radio" name="trier" class="btn btn btn-primary btn-rounded float-right" data-animation="fadeInUp" data-delay="1s" data-duration="500ms" >date de fabrication</button>
-        </form>
-        
-        <br> </br>
-
-                    
-
-
-                                        <?php foreach ($listproduit as $l) { ?>
-                                            <tr>
-                                                <td> <?php echo $l['id'] ?> </td>
-                                                <td> <?php echo $l['nom'] ?> </td>
-                                                <td> <?php echo $l['description'] ?> </td>
-                                                <td> <?php echo $l['etat'] ?> </td>
-                                                <td> <?php echo $l['dateFabrication'] ?> </td>
-                                                <td> <?php echo $l['prix'] ?> </td>
-
-                                                
 
 
 
-                                                
-
-
-
-
-                                               
-
-                                            
-                                                
-
-                                                
-
-
-
-
-
-
-
-                                            </tr>
-                                        <?php } ?>
-
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
+                
                                               
                                                         }
                                                     
@@ -231,237 +143,63 @@ http://www.templatemo.com/free-website-templates/417-grill
                         </div>
                     </div>
                     <div class="row">
+                                
                         <div class="filters col-md-12 col-xs-12">
+                      
                             <ul id="filters" class="clearfix">
-                                <li><span class="filter" data-filter="all">All</span></li>
-                                <li><span class="filter" data-filter=".Cuisson">Cuisson</span></li>
-                                <li><span class="filter" data-filter=".LaveLinge">LaveLinge</span></li>
-                                <li><span class="filter" data-filter=".Encastrable">Encastrable</span></li>
-                                <li><span class="filter" data-filter=".Living">Living</span></li>
-                                <li><span class="filter" data-filter=".Froid">Froid</span></li>
+                            <li><span class="filter" data-filter=".ALL">ALL</span></li>
+                                
+                            <li><span><a href="cuisson.php"><i class=" filter "  ></i>CUISSON</a> </span> </li>
+                                
+                                
+                               <li><span><a href="lavelinge.php"><i class=" filter "  ></i>Lavelinge</a> </span> </li>
+                               <li><span><a href="encastrable.php"><i class=" filter "  ></i>Encastrable</a> </span> </li>
+                               <li><span><a href="living.php"><i class=" filter "  ></i>Living</a> </span> </li>
+                               <li><span><a href="froid.php"><i class=" filter "  ></i>Froid</a> </span> </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="row" id="Container">
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Cuisson">       
+                   
+                                    <table>
+                                    <div class="row">
+                                
+                                <div class="filters col-md-28 col-xs-12">     
                             <div class="portfolio-wrapper">                
                                 <div class="portfolio-thumb">
-                                    <img src="Produits/Cuisson1.png" alt="" />
-                                    <div class="hover">
+                                <?php
+                             
+                                foreach ($listproduit as $l  ) { ?>
+                                    <td>
+                                        <img src="../../views/back/uploads/<?= $l['image'] ?>" style="width:100px"> 
+                                        
+                                        <div class="hover">
                                         <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/Cuisson1.png"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Cuisson</span>
+                                        <a class="fancybox" href="../../views/back/uploads/"><img src="images/open-icon.png" alt="" /></a>
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>  
+                                
                                 <div class="label-text">
-                                    <h3><a href="single-post.html">Cuisiniéres,Cuisson</a></h3>
-                                    <span class="text-category">600dt</span>
+                                <span class="shop-item-name"> <?php echo $l['nom'] ?> </span>
+                                
+                                
+
+                                <div class="price-at-bottom ">
+										<span class="item_price"><?php echo $l['prix'];  ?></span>
+                                        <br> </br>
+									</div>
                                 </div>
                             </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Cuisson">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/Cuisson2.png" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/Cuisson2.png"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Cuisson</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="recipes1/single-post.html">Cuisiniéres,Cuisson</a></h3>
-                                    <span class="text-category">$550dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item LaveLinge">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/LaveLinge1.jpg" alt=" " />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/LaveLinge1.jpg"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Lave Linge</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Lave Linge</a></h3>
-                                    <span class="text-category">$450</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Encastrable">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/hotte-casquette-60-cm-.png" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/hotte-casquette-60-cm-.png"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Encastrable</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Hotte-casquette-60-cm</a></h3>
-                                    <span class="text-category">250dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Living">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/batteur-a-main-.png" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/batteur-a-main-.png"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Batteur à main</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">batteur à main</a></h3>
-                                    <span class="text-category">75dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Froid">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/Refrigirateur.jpg" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/Refrigirateur.jpg"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Froid</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Refrigirateur</a></h3>
-                                    <span class="text-category">850dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item LaveLinge">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/LaveLinge2.jpg" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/LaveLinge2.jpg"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>LaveLinge</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Lave Linge</a></h3>
-                                    <span class="text-category">$450</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Encastrable">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/four-encastrable-ofe-6f-1n.png" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/four-encastrable-ofe-6f-1n.png"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Encastrable</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Four encastrable</a></h3>
-                                    <span class="text-category">600dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Froid">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/Congelateur.jpg" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/Congelateur.jpg"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Congelateur</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Congelateur</a></h3>
-                                    <span class="text-category">350dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Living">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/chauffe-bain-10l-.jpg" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/chauffe-bain-10l-.jpg"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Chauffe bain</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Chauffe bain</a></h3>
-                                    <span class="text-category">150dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Living">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/chauffage.png" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/chauffage.png"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Chauffage</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Chauffage</a></h3>
-                                    <span class="text-category">150dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                        <div class="col-md-3 col-sm-6 mix portfolio-item Froid">       
-                            <div class="portfolio-wrapper">                
-                                <div class="portfolio-thumb">
-                                    <img src="Produits/miniRefrigirateur.jpg" alt="" />
-                                    <div class="hover">
-                                        <div class="hover-iner">
-                                            <a class="fancybox" href="Produits/miniRefrigirateur.jpg"><img src="images/open-icon.png" alt="" /></a>
-                                            <span>Froid</span>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="label-text">
-                                    <h3><a href="single-post.html">Mini Refrigirateur</a></h3>
-                                    <span class="text-category">250dt</span>
-                                </div>
-                            </div>          
-                        </div>
-                    </div>
-                    <div class="pagination">
-                        <div class="row">   
-                            <div class="col-md-12">
-                                <ul>
-                                	<li><a href="#">Previous</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">Next</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>     
+                        </div> 
+        
+                                    </td>
+                         
+                        <?php } ?>
+                                </table>
+                 
+                    
                 </div>
             </div>
 
@@ -557,7 +295,14 @@ http://www.templatemo.com/free-website-templates/417-grill
                 </div>
             </footer>
 
-    
+            
+                                       
+                    
+
+
+                                   
+
+                                   
         <script src="js/vendor/jquery-1.11.0.min.js"></script>
         <script src="js/vendor/jquery.gmap3.min.js"></script>
         <script src="js/plugins.js"></script>

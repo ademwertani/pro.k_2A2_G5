@@ -136,7 +136,10 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     
 
 
-                                        <?php foreach ($listeproduit as $l  ) { ?>
+                                        <?php
+                                        
+                                        
+                                         foreach ($listeproduit as $l  ) { ?>
                                             <tr>
                                                 <td> <?php echo $l['id'] ?> </td>
                                                 <td> <?php echo $l['nom'] ?> </td>
@@ -148,8 +151,10 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                                 <td> <img src="./uploads/<?= $l['image'] ?>" style="width:100px"> </td>
 
 
-                                                <?php foreach ($listecategorie as $l)  ?>
-                                                <td> <?php echo $l['nom'] ?> </td>
+                                               
+                                                <td>
+                                            <?php echo $l['categorie'] ?>
+                                               </td>
                                                 
 
 
@@ -193,6 +198,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                         <?php } ?>
 
                                     </table>
+                                    <p><a href="index.php" target="_blank">Chercher</a></p>
+                                    <p><a href="genratepdf.php" target="_blank">Generate PDF</a></p>
+
                                 </div>
 
                             </div>

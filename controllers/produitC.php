@@ -37,32 +37,98 @@ class produitC
     function afficherproduit()
     {
         
-        $sql ="SELECT * FROM  produit ";
+        $sql =" SELECT * from produit    ";
         
         $db = config::getConnexion();
 
         try {
             $liste = $db->query($sql);
+            
             return $liste;
         } catch (Exception $e) {
             die('Erreur: ' . $e->getMessage());
         }
     }
-    function affichert()
+    function findById($id)
+{
+    $sql = "SELECT * from produit where id= $id ";
+    $db = config::getConnexion();
+    try {
+        $liste = $db->query($sql);
+        return $liste;
+    } catch (Exception $e) {
+        die('Erreur :' . $e->getMessage());
+    }
+}
+    
+    function filtre_prix_produit1(){
+		$sql="SELECT nom,prix,image FROM produit WHERE categorie=1 ";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+    function filtre_prix_produit2(){
+		$sql="SELECT nom,prix,image FROM produit WHERE  categorie=2 ";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+    function filtre_prix_produit3(){
+		$sql="SELECT nom,prix,image FROM produit WHERE  categorie=3 ";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+    function filtre_prix_produit4(){
+		$sql="SELECT nom,prix,image  FROM produit WHERE  categorie=4 ";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+    function filtre_prix_produit5(){
+		$sql="SELECT nom,prix,image FROM produit WHERE  categorie=5 ";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
+    function getproduitById($id)
     {
-        
-        $sql =" SELECT * FROM `projetweb`.`categorie` WHERE `id` = 1  ";
-
-        
-        $db = config::getConnexion();
-
-        try {
-            $liste = $db->query($sql);
-            return $liste;
-        } catch (Exception $e) {
-            die('Erreur: ' . $e->getMessage());
+    $sql="SELECT * FROM produit where id='$categorie'";
+    $db = config::getConnexion();
+    try{
+        $categorie=$db->query($sql);
+        return $categorie->fetch();
+        }
+    catch (Exception $e){
+        die('Erreur: '.$e->getMessage());
         }
     }
+   
     function supprimerproduit($produit)
     {
         $sql = "DELETE from produit where  id= :id";
@@ -94,17 +160,7 @@ class produitC
     }
 
 
-function filtre_prix_produit($min,$max){
-    $sql="SELECT * FROM produit WHERE prix BETWEEN  $min AND $max ";
-    $db = config::getConnexion();
-    try{
-    $liste=$db->query($sql);
-    return $liste;
-    }
-    catch (Exception $e){
-        die('Erreur: '.$e->getMessage());
-    }
-}
+
 
 function trierPr(){
 			
@@ -143,5 +199,6 @@ function trierDate(){
     }	
 }
 }
+
     ?>
 

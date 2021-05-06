@@ -1,15 +1,16 @@
 
 <?PHP
-
-
 include "config.php";
+
+
+
 
 class CategorieC
 {
 
     function ajouterCategorie($categorie)
     {
-        $sql = "insert into categorie (nom) values (:nom)";
+        $sql = "insert into categoriep (nom) values (:nom)";
 
         $db = config::getConnexion();
 
@@ -28,7 +29,7 @@ class CategorieC
    
     function afficherCategorie()
     {
-        $sql = "SELECT * from categorie ";
+        $sql = "SELECT * from categoriep ";
         $db = config::getConnexion();
 
         try {
@@ -42,7 +43,7 @@ class CategorieC
     
     function modifierCategorie($categorie, $id)
     {
-        $sql = "UPDATE categorie SET nom =:nom WHERE id=:id";
+        $sql = "UPDATE categoriep SET nom =:nom WHERE id=:id";
         $db = config::getConnexion();
 
         try {
@@ -68,7 +69,7 @@ class CategorieC
     
     function supprimerCategorie($categorie)
     {
-        $sql = "DELETE from categorie where  id= :id";
+        $sql = "DELETE from categoriep where  id= :id";
         $db = config::getConnexion();
         $req = $db->prepare($sql);
 
@@ -85,7 +86,7 @@ class CategorieC
 
     function RecuperatebyId($id)
     {
-        $sql = "SELECT * from categorie where id= $id ";
+        $sql = "SELECT * from categoriep where id= $id ";
         $db = config::getConnexion();
         try {
             $liste = $db->query($sql);
@@ -118,23 +119,42 @@ class CategorieC
             die('Erreur: '.$e->getMessage());
         }
     }
+    
 
+    function RechercheACategorie()
+    {   
+        $output = '';
+        $sql = "SELECT * from categoriep where nom LIKE '%".$_POST["search"]."%'";
+        $result = config::getConnexion();
 
-
-
-
-
-
-
-
-
-
-    //function rechercherCategorie()
-    //function TriCategorieById()
-    //function TriCategorieByNom()
-
+        //$result = mysqli_query($connect, $sql);
+        if(mysqli_num_rows($result) > 0)
+        {
+            $output .= '<h4 align="center">Search Result</h4>';
+            $output .= '<div class="table-responsive">
+                          <table class="table table bordered">
+                             <tr>
+                                   <th>nom</th>
+                             </tr>';
+            while($row = mysqli_fetch_array($result))
+            {
+                $output .= '
+                <tr>
+                    <td>'.$row["nom"].'</td>
+                </tr>
+             ';
+            }
+            echo $output;
+        }
+        else
+        {
+            echo 'data not found' ;
+        }
+    }
 }
-
-
-
 ?>
+   
+
+    
+
+

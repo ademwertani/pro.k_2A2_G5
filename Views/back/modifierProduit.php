@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-
-
-
+<?php
+include "../../entity/produit.php";
+include "../../controllers/produitC.php";
+?>
 
 
 
@@ -100,8 +101,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 
                                         <!-- recupere l'id-->
                                         <?php
-                                        include "../../entity/produit.php";
-                                        include "../../controllers/produitC.php";
+                                       
 
                                         if (isset($_GET['id'])) {
                                             $produitC = new produitC();
@@ -123,9 +123,10 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                         <table>
                                             <form action="post_mdProduit.php" method="POST" enctype="multipart/form-data">
 
-                                                <h3>Modifier categorie; <?PHP echo $id ?></h3>
+                                                <h3>Modifier Produit </h3>
                                                 <tr>
                                                     <td>
+                                                        <label style="font-weight: bold"> id </label>
                                                         <input type="text" class="form-control has-feedback-right" id="inputSuccess4" name="id" placeholder="id" value="<?php echo $id ?>" readOnly="">
                                                     </td>
                                                 </tr>

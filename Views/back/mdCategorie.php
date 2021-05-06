@@ -2,19 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <?php
-
-
-
-
-
-
-
 include "../../controllers/categorieC.php";
 $categorieC = new categorieC();
 $listecategorie = $categorieC->afficherCategorie();
-
-
 ?>
+
 
 <head>
     <meta charset="utf-8" />
@@ -162,12 +154,20 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                                         <?php } ?>
 
                                     </table>
+
+
+
                                 </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
+
+                
+                 
+
+
                 <!-- /. PAGE WRAPPER  -->
                 <!-- /. WRAPPER  -->
                 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -192,3 +192,5 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 </body>
 
 </html>
+
+
