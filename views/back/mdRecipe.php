@@ -3,9 +3,6 @@
  
 include "../../controllers/recettecontroller.php";
 
-
-
-
 $db = config::getConnexion();
 
 
