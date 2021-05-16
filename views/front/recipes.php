@@ -114,7 +114,7 @@ $listrecette = $recettec->afficherRecette();
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about-us.html">About</a></li>
                                 <li><a href="recipes.php">recipes</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                               
                             </ul>
                         </div>
                     </div>

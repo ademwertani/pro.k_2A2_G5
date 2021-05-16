@@ -5,7 +5,6 @@ include "../../controllers/recettecontroller.php";
 
 $db = config::getConnexion();
 
-
 $start = 0; 
 $per_page=3; 
 $page_counter = 0; 
@@ -440,7 +439,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html"
                             </div>
 
                       
-<form action="pdf.php">
+<form action="pdfoum.php">
     <button type ='submit' style="float: right;">pdf </button>
                                                     </form>
                                                     </div>
