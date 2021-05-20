@@ -49,7 +49,7 @@ http://www.templatemo.com/free-website-templates/417-grill
     <body>
 
         
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        
         <![endif]-->
 
 
@@ -116,8 +116,8 @@ http://www.templatemo.com/free-website-templates/417-grill
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-content">
-                                <h2>Recipes</h2>
-                                <span><a href="about-us.html">Home </a>/ <a href="recipes.html">recipes</a></span>
+                                <h2>Promos</h2>
+                                <span><a href="about-us.html">Home </a>/ <a href="recipes.html">Promos</a></span>
                              
                             </div>
                           
@@ -134,7 +134,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                     <tbody>
 
                  
-            <h2> Promotion</h2>
+            
             
                     <?php
                     
@@ -151,15 +151,33 @@ http://www.templatemo.com/free-website-templates/417-grill
                    ?>
                   
                   <tr>   
+                  </br>
+                  </br>
                   
 
-                    <td>nom:<?PHP echo $result11['ReferencePack']; ?></td>
-                    <span style="color:#FF0000">prix: <del><?PHP echo $result11['prix']; ?></del></span>
-                    
+                  <div class="col-lg-6 col-md-6 col-xl-6">
+                  <div class="portfolio-wrapper">
+                  <div class="col-lg-6 col-md-6 col-xl-6">
+                  <div class="row">
+                  <div style="text-align:center">
+                    <td><?PHP echo $result11['ReferencePack']; ?></td>
+                    <span style="color:#FF0000; text-align:center">prix: <del><?PHP echo $result11['prix']; ?> Dt</del></span>
+                        </div>
+                
 
-                    <span style="color:#228B22">prix apres promotion:<?PHP echo $p; ?></span>
-                    <td><img src="/pro.k/assets1/img/<?PHP echo $result11['image']; ?>"></td>
-                   
+                    <div class="portfolio-thumb">
+                    <img src="/pro.k/assets1/img/<?PHP echo $result11['image']; ?> " style="width:450px; height:300px;">
+                    </div>
+
+                    <div class="label-text">
+                    <span style="text-align:center" >prix apres promotion:<?PHP echo $p; ?> Dt </span>
+                    </div>
+                 </div>
+                 </div>
+                 </div> 
+                 </div> 
+
+
                     
            </tr>
       
@@ -185,4 +203,6 @@ http://www.templatemo.com/free-website-templates/417-grill
         <script src="/promo/assets2/js/main.js"></script>
 
     </body>
+    
+    
 </html>

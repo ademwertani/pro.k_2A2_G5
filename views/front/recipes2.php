@@ -106,8 +106,8 @@ http://www.templatemo.com/free-website-templates/417-grill
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-content">
-                                <h2>Recipes</h2>
-                                <span><a href="about-us.html">Home </a>/ <a href="recipes.html">recipes</a></span>
+                                <h2>Pack</h2>
+                                <span><a href="about-us.html">Home </a>/ <a href="recipes2.php">Pack</a></span>
                              
                             </div>
                           
@@ -126,12 +126,28 @@ http://www.templatemo.com/free-website-templates/417-grill
                <?PHP
                foreach($listpacket as $row){
                    ?>
+
+                   
+                  <div class="col-lg-6 col-md-6 col-xl-6">
+                  <div class="portfolio-wrapper">
+                  <div class="col-lg-6 col-md-6 col-xl-6">
+                  <div class="row">
+                  <div style="text-align:center">
                    <tr>
 
-                   <td>nom:<?PHP echo $row['ReferencePack']; ?> </td>
-                   <td>prix:<?PHP echo $row['prix']; ?> </td>
-                   <td><img src="/pro.k/assets1/img/<?PHP echo $row['image']; ?>"></td>
-                    
+                   <td><?PHP echo $row['ReferencePack']; ?> </td>
+                   <td><?PHP echo $row['prix']; ?> Dt </td>
+                   <td><img src="/pro.k/assets1/img/<?PHP echo $row['image']; ?>"style="width:450px; height:300px;"></td>
+               </div>
+               </div>
+
+               </div>
+
+               </div>
+
+               </div>
+
+
                     
                    
                    </tr>
