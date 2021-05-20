@@ -4,7 +4,7 @@
 include('header.php') ;
 
 // initializ shopping cart class
-include '../../controllers/panierC.php';
+include_once "../../controllers/panierC.php";
 
 $cart = new Cart;
 

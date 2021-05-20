@@ -132,8 +132,10 @@ http://www.templatemo.com/free-website-templates/417-grill
 
             
                     <tbody>
+
                  
             <h2> Promotion</h2>
+            
                     <?php
                     
 					foreach ($listpromotion as $promotion) {
@@ -158,10 +160,10 @@ http://www.templatemo.com/free-website-templates/417-grill
                     <span style="color:#228B22">prix apres promotion:<?PHP echo $p; ?></span>
                     <td><img src="/pro.k/assets1/img/<?PHP echo $result11['image']; ?>"></td>
                    
-                 
-           </tr>
-        
                     
+           </tr>
+      
+    
                  
               
                     
