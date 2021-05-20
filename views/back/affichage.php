@@ -46,7 +46,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="/promo/assets1/img/find_user.jpg" class="user-image img-responsive"/>
+                    <img src="uploads/997116.png" class="user-image img-responsive"/>
 					</li>
 				
                     <li>

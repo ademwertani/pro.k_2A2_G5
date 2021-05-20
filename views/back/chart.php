@@ -64,7 +64,7 @@ $query->execute();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Pro.K</a>
+          <a class="navbar-brand" href="index.php">Pro.K</a>
         </div>
         <div
           style="
@@ -75,7 +75,7 @@ $query->execute();
           "
         >
           Last access : 30 May 2014 &nbsp;
-          <a href="login.html" class="btn btn-danger square-btn-adjust"
+          <a href="login.php" class="btn btn-danger square-btn-adjust"
             >Logout</a
           >
         </div>
@@ -86,7 +86,7 @@ $query->execute();
           <ul class="nav" id="main-menu">
             <li class="text-center">
               <img
-                src="assets/img/find_user.png"
+                src="uploads/997116.png"
                 class="user-image img-responsive"
               />
             </li>
