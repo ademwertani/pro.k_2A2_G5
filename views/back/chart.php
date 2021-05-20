@@ -92,31 +92,55 @@ $query->execute();
             </li>
 
             <li>
-              <a href="index.html"
-                ><i class="fa fa-dashboard fa-2x"></i> Dashboard</a
-              >
-            </li>
+            <a href="index.html"><i class="fa fa-dashboard fa-2x"></i> Dashboard</a>
+          </li>
 
-            <li>
-              <a href="rdreviews.php"><i class="fa fa-qrcode fa-2x"></i>Reviews</a>
-            </li>
-            <li>
-              <a href="chart.html"
-                ><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a
-              >
-            </li>
+          <li>
+            <a href="rdreviews.php"><i class="fa fa-qrcode fa-2x"></i>Reviews</a>
+          </li>
+          <li>
+            <a href="chart.php"><i class="fa fa-bar-chart-o fa-2x"></i> Stat/Rate</a>
+          </li>
+          <li>
+                        <a  href="clienttt.php"><i class="fa fa-qrcode fa-3x"></i> Tab client</a>
+                    </li>
+                    <li>
+                        <a  href="reclamationeeljen.php"><i class="fa fa-qrcode fa-3x"></i> Tab reclamation</a>
+                    </li>
 
-            <li>
-              <a href="addrecipe.php"><i class=" fa fa-edit fa  fa-2x  "></i>
-                  Recipes </a>
+          <li>
+            <a href="addrecipe.php"><i class=" fa fa-edit fa  fa-2x  "></i>
+              Recipes </a>
 
 
           </li>
           <li>
-              <a href="addcategories.html"><i class=" fa fa-edit fa fa-2x  "></i>
-                  Categories </a>
+            <a href="addcategories.html"><i class=" fa fa-edit fa-2x "></i>
+              Categories </a>
 
           </li>
+          <li>
+                        <a href="modifier.html"><i class="fa fa-edit fa-3x"></i> modifier un évenements </a>
+                    </li>
+                    <li>
+                        <a href="participants.html"><i class="fa fa-edit fa-3x"></i> afficher les participants </a>
+                    </li>
+
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> manage events<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+
+                                <a href="ajouter un evenement.html">ajouter un évenement</a>
+                            </li>
+                            <li>
+                                <a href="suprimer un evenement.html">supprimer un évenement</a>
+                            </li>
+                            <li>
+                                <a href="chercher un evenement.html">chercher un évenement</a>
+                            </li>
+
         </div>
       </nav>
       <!-- /. NAV SIDE  -->

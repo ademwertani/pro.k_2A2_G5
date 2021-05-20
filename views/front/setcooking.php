@@ -1,6 +1,6 @@
 <?php
 include "../../controllers/participationcontroller.php"; 
-include "../../model/participation.php";
+include "../../entity/participation.php";
 
     //$participation1 = new participation($_POST['idE']); 
     //$participation1controller = new participationcontroller(); 

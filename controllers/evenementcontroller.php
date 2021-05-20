@@ -87,7 +87,7 @@ class evenementcontroller
     function pdf()
     {
         require('vendor/autoload.php');
-        $con=mysqli_connect('localhost','root','','test');
+        $con=mysqli_connect('localhost','root','','pro.k');
         $res=mysqli_query($con,"select * from evenement");
         if(mysqli_num_rows($res)>0){
             $html='<style></style><table class="table">';

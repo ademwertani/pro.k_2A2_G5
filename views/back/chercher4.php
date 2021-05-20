@@ -1,6 +1,6 @@
 <?php
 include "../../controllers/evenementcontroller.php"; 
-include "../../model/evenement.php";
+include "../../entity/evenement.php";
 
     $evenement1 = new evenement($_POST['adresseE']); 
     $evenement1controller = new evenementcontroller(); 

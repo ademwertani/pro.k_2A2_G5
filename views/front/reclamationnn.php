@@ -1,7 +1,12 @@
+
+
 <?php 
   
-  include '../../controllers/reclamationc.php';
-  include_once '../../controllers/clientc1.php';
+  include_once '../../controllers/reclamationc.php';
+  include_once '../../entity/reclamation.php';
+  include_once '../../config.php';
+  include_once '../../entity/client.php';
+  include_once '../../controllers/clientc.php';
   session_start();
   
   $reclamationc =  new reclamationc();
@@ -34,12 +39,13 @@ http://www.templatemo.com/free-website-templates/417-grill
         
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="../css/bootstrap.css">
-        <link rel="stylesheet" href="../css/font-awesome.css">
-        <link rel="stylesheet" href="../css/templatemo_style.css">
-        <link rel="stylesheet" href="../css/templatemo_misc.css">
-        <link rel="stylesheet" href="../css/flexslider.css">
-        <link rel="stylesheet" href="../css/testimonails-slider.css">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/eeljeya.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/templatemo_style.css">
+        <link rel="stylesheet" href="../../css/templatemo_misc.css">
+        <link rel="stylesheet" href="../../css/flexslider.css">
+        <link rel="stylesheet" href="../../css/testimonails-slider.css">
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
@@ -60,12 +66,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                                     <a href="logout.php">Logout</a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="cart-info">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    (<a href="#">5 items</a>) in your cart (<a href="#">$45.80</a>)
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -74,16 +75,21 @@ http://www.templatemo.com/free-website-templates/417-grill
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="logo">
-                                    <a href="#"><img src="../images/logo.png" title="Grill Template" alt="Grill Website Template" ></a>
+                                    <a href="#"><img src="../../images/logo.png" title="Grill Template" alt="Grill Website Template" ></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="main-menu">
                                     <ul>
-                                        <li><a href="index.php">Home</a></li>
-                                        <li><a href="about-us.html">About</a></li>
-                                        <li><a href="recipes.html">Recipes</a></li>
-                                        <li><a href="reclamationnn.php">Reclamation</a></li>
+                                    <li><a href="index.php">Home</a></li>
+                            <li><a href="about-us.php">About</a></li>
+                            <li><a href="recipes.php">recipes</a></li>
+                            <li><a href="produit.php">Produit</a></li>
+                            <li><a href="reclamationnn.php">Réclamation</a></li>
+                            <li><a href="evenement.php"> evenements</a></li>
+                            <li><a href="promotion2.php">promo</a></li>
+                            <li><a href="recipes2.php">pack</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -121,7 +127,7 @@ http://www.templatemo.com/free-website-templates/417-grill
                         <div class="col-md-12">
                             <div class="heading-section">
                                 <h2>Feel free to send a message</h2>
-                                <img src="../images/under-heading.png" alt="" >
+                                <img src="../../images/under-heading.png" alt="" >
                             </div>
                         </div>
                     </div>
@@ -190,10 +196,10 @@ http://www.templatemo.com/free-website-templates/417-grill
             
 
 
-        <script src="../js/vendor/jquery-1.11.0.min.js"></script>
-        <script src="../js/vendor/jquery.gmap3.min.js"></script>
-        <script src="../js/plugins.js"></script>
-        <script src="../js/main.js"></script>
+        <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
+        <script src="../../js/vendor/jquery.gmap3.min.js"></script>
+        <script src="../../js/plugins.js"></script>
+        <script src="../../js/main.js"></script>
 
         
                 

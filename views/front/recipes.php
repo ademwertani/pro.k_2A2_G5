@@ -86,16 +86,13 @@ $listrecette = $recettec->afficherRecette();
                 <div class="row">
                     <div class="col-md-6">
                         <div class="home-account">
-                            <a href="#">Home</a>
-                            <a href="#">My account</a>
+                            <a href="index.php">Home</a>
+                            <a href="createaccount.php">Create Account</a>
+                            <a href="login.php">login</a>
+                            <a href="logout.php">Logout</a>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="cart-info">
-                            <i class="fa fa-shopping-cart"></i>
-                            (<a href="#">5 items</a>) in your cart (<a href="#">$45.80</a>)
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -111,10 +108,15 @@ $listrecette = $recettec->afficherRecette();
                     <div class="col-md-6">
                         <div class="main-menu">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about-us.html">About</a></li>
-                                <li><a href="recipes.php">recipes</a></li>
-                               
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about-us.php">About</a></li>
+                            <li><a href="recipes.php">recipes</a></li>
+                            <li><a href="produit.php">Produit</a></li>
+                            <li><a href="reclamationnn.php">Réclamation</a></li>
+                            <li><a href="evenement.php"> evenements</a></li>
+                            <li><a href="promotion2.php">promo</a></li>
+                            <li><a href="recipes2.php">pack</a></li>
+
                             </ul>
                         </div>
                     </div>
